@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Shopping List{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block header %}Shopping List{% endblock %}</h1>
+    </header>
+    <main>
+        {% block content %}
+          <div class="container">
+            <div class="header">
+                <nav>
+        <ul>
+            <li><a href="{% url 'add_product' %}">Добавить товар</a></li>
+        </ul>
+    </nav>
+                <nav>
+        <ul>
+            <li><a href="{% url 'product_list' %}">Посмотреть список</a></li>
+        </ul>
+    </nav>
+            </div>
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Shopping List</p>
+    </footer>
+</body>
+</html>

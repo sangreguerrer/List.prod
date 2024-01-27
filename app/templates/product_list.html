@@ -1,0 +1,41 @@
+
+
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="header">
+    </div>
+    <form method="GET" action="{% url 'product_list' %}">
+        {{ form.as_p }}
+        <button type="submit">Применить</button>
+    </form>
+    <hr/>
+
+    <h1>Список продуктов</h1>
+    <div class="sort-block">
+      <span class="sort-item">Сортировать по:</span>
+      <a class="sort-item" href="?sort=title">названию</a>
+      <a class="sort-item" href="?sort=min_quantity">начиная с меньшего</a>
+      <a class="sort-item" href="?sort=max_quantity">начиная с большего</a>
+    </div>
+    <div class="content">
+      {% for product in products %}
+        <div class="product">
+          <a href="{% url 'product' product.slug %}">
+            <h3>{{ product.title }}</h3>
+          </a>
+          <div class="category">Категория: {{ product.category }}</div>
+          <div class="quantity">Количество: {{ product.quantity }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="container">
+      <div class="header">
+        <h5>
+          <a href="{% url 'index' %}">Вернуться на главную</a>
+        </h5>
+      </div>
+    </div>
+  </div>
+{% endblock %}

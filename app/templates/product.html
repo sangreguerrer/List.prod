@@ -1,0 +1,26 @@
+
+{% load static %}
+
+{% block title %}
+<h1>{{ product.title }}</h1>
+{% endblock %}
+
+ {% block content %}
+  <div class="container">
+      <div class="content">
+    <div>Количество:{{ product.quantity }} шт/кг</div>
+    <div>Описание:{{ product.description }}</div>
+    <div>Категория:{{ product.category }}</div>
+  </div>
+  <div class="actions">
+      <a href="{% url 'update_product' product.id %}">Редактировать товар</a>
+      <p><a href="{% url 'delete' product.pk %}"> Удалить товар из списка</a></p>
+  </div>
+      <div class="container">
+            <div class="header">
+             <h5>
+              <a href="{% url 'product_list' %}">Вернуться к списку</a>
+             </h5>
+            </div>
+        </div>
+    {% endblock %}
