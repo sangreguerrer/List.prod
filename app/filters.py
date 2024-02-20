@@ -9,5 +9,3 @@ class CategoryFilter(django_filters.FilterSet):
             'title': ['icontains'],
             'category': ['exact']
         }
-
-

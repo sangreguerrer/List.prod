@@ -4,6 +4,7 @@ from .models import Product
 
 class ProductForm(forms.ModelForm):
     category = forms.ChoiceField(choices=Product.CategoryChoices.choices)
+
     class Meta:
         model = Product
         fields = ['title', 'description', 'quantity', 'category']

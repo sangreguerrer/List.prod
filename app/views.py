@@ -9,7 +9,6 @@ from django_filters.views import FilterMixin
 
 def index(request):
     template = 'base.html'
-    context = request
     return render(request, template)
 
 
@@ -24,7 +23,9 @@ def product_list(request):
         products = catfilter.qs.order_by('-quantity')
     else:
         products = catfilter.qs
-    return render(request, 'product_list.html', {'form': catfilter.form, 'products': products})
+    return render(
+        request, 'product_list.html',
+        {'form': catfilter.form, 'products': products})
 
 
 def add_product(request):
