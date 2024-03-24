@@ -27,7 +27,7 @@ services:
     depends_on:
       - db
     volumes:
-      - /home/breez/PycharmProjects/Worktask/djangologs:/usr/src/app
+      - /djangologs:/usr/src/app
       - data-static:/Worktask/app/static
     env_file:
       - .env
